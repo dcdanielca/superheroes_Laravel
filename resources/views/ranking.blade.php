@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>SuperHeroes</title>
+    <script src="https://kit.fontawesome.com/340a5fc764.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -25,7 +26,10 @@
                     <img class="col-sm card-img-top img-responsive mt-3 mx-auto" src="{{$superhero->picture}}" alt="Picture"  style="width: 170px; height:170px;">
                     <div class="card-body col-sm text-center">
                         <h2 class="card-title font-weight-bold">{{$superhero->name}}</h2>
-                        <h3 class="card-text">{{$superhero->likes}}</h3>
+                        <div class="row justify-content-center">
+                            <i class="fas fa-star fa-solid fa-2x"></i>
+                            <h3 class="card-text">{{$superhero->likes}}</h3>
+                        </div>
                     </div>
                 </div>
             @endforeach
