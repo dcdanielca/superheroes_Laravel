@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\LikesHelper as HelpersLikesHelper;
 use App\SuperHero;
 use Illuminate\Http\Request;
 use LikesHelper;
@@ -16,7 +15,7 @@ class SuperHeroController extends Controller
      */
     public function index()
     {
-        $superheroes = SuperHero::all();
+        $superheroes = SuperHero::select('id', 'name', 'picture', 'publisher', 'info')->paginate(9);
         return view('index', ['superheroes' => $superheroes]);
     }
 
@@ -49,7 +48,7 @@ class SuperHeroController extends Controller
      */
     public function show(SuperHero $superHero)
     {
-        return SuperHero::select('name', 'picture', 'publisher', 'info')->get();
+        return SuperHero::select('name', 'picture', 'publisher', 'info')->paginate(9);
     }
 
     /**

@@ -19,6 +19,7 @@
             <a class="btn btn-dark" href="/superheroes/ranking">See ranking</a>
           </li>
     </nav>
+
     <div class="container-fluid card-group">
         <div class="row justify-content-center">
             @foreach($superheroes as $superhero)
@@ -44,6 +45,9 @@
                 </div>
             @endforeach
         </div>
+    </div>
+    <div class="row justify-content-center">
+        {{$superheroes->links()}}
     </div>
 </body>
 
