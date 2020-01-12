@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\LikesHelper as HelpersLikesHelper;
 use App\SuperHero;
 use Illuminate\Http\Request;
-use Cookie;
+use LikesHelper;
 
 class SuperHeroController extends Controller
 {
@@ -48,7 +49,7 @@ class SuperHeroController extends Controller
      */
     public function show(SuperHero $superHero)
     {
-        //
+        return SuperHero::select('name', 'picture', 'publisher', 'info')->get();
     }
 
     /**
@@ -70,34 +71,9 @@ class SuperHeroController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, SuperHero $superHero, $id, $like)
-    {
-        $cookieLike = cookie()->forever('null', 1);
-        $cookieDislike = cookie()->forever('null', 1);
-        $superHero = SuperHero::findOrFail($id);
-        if ($like == "like") {
-            if(Cookie::get('likesuperhero'.$id)){
-                $cookieLike=Cookie::forget('likesuperhero'.$id);
-                $superHero->decrement('likes');
-            }else{
-                $cookieDislike=Cookie::forget('dislikesuperhero'.$id);
-                $superHero->increment('likes');
-                $cookieLike=cookie()->forever('likesuperhero'.$id, 1);
-            }
-
-        }else{
-            if(Cookie::get('dislikesuperhero'.$id)){
-                $superHero->increment('likes');
-                $cookieDislike=Cookie::forget('dislikesuperhero'.$id);
-            }else{
-                $cookieLike=Cookie::forget('likesuperhero'.$id);
-                $superHero->decrement('likes');
-                $cookieDislike=cookie()->forever('dislikesuperhero'.$id, 1);
-            }
-        }
-        $superHero->save();
-
-        return redirect('/')->withCookie($cookieLike)->withCookie($cookieDislike);
-
+    {     
+        $cookies = LikesHelper::updateLikes($id, $like);
+        return redirect('/')->withCookie($cookies["Like"])->withCookie($cookies["Dislike"]);
     }
 
     /**

@@ -13,23 +13,37 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">SUPERHEROES</a>
+        <li class="nav-item" style="list-style-type: none;">
+            <a class="btn btn-dark" href="/superheroes/ranking">See ranking</a>
+          </li>
+    </nav>
     <div class="container-fluid card-group">
-        <div class="row">
+        <div class="row justify-content-center">
             @foreach($superheroes as $superhero)
-            <div class="card m-3" style="width: 20rem;">
-                <img class="col-sm card-img-top img-responsive rounded-circle" src="{{$superhero->picture}}" alt="Picture"  style="width: 100px">
-                <div class="card-body col-sm">
-                    <a href="superhero/{{$superhero->id}}" class="card-title font-weight-bold">{{$superhero->name}}</a>
-                    <p class="card-text">{{$superhero->info}}</p>
-                    <p class="card-text"><small class="text-muted">{{$superhero->publisher}}</small></p>
-                </div>
-                <div class="mb-2 justify-content-end d-flex">
-                    <a type="button" class="btn-outline-dark ml-2 @if(Cookie::get('dislikesuperhero'.$superhero->id)) active @endif" href="/index/superhero/{{$superhero->id}}/dislike"><i class="far fa-thumbs-down fa-2x"></i></a>
-                    <a type="button" class="btn-outline-dark ml-2 mr-2 @if(Cookie::get('likesuperhero'.$superhero->id)) active @endif" href="/index/superhero/{{$superhero->id}}/like"><i class="far fa-thumbs-up fa-2x"></i></a>
-                </div>
+                <div class="card col-sm-3 m-3" >
+                    <img class="col-sm card-img-top img-responsive rounded-circle mt-3 mx-auto" src="{{$superhero->picture}}" alt="Picture"  style="width: 200px; height:200px;">
+                    <div class="card-body col-sm">
+                        <a href="superhero/{{$superhero->id}}" class="card-title font-weight-bold">{{$superhero->name}}</a>
+                        <p class="card-text">{{$superhero->info}}</p>
+                        <p class="card-text"><small class="text-muted">{{$superhero->publisher}}</small></p>
+                    </div>
+                    <div class="mb-2 justify-content-end d-flex">
+                        <a type="button" class="btn-outline-dark ml-2 
+                        @if(Cookie::get('dislikesuperhero'.$superhero->id)) active @endif" 
+                        href="/index/superhero/{{$superhero->id}}/dislike">
+                            <i class="far fa-thumbs-down fa-2x"></i>
+                        </a>
+                        <a type="button" class="btn-outline-dark ml-2 mr-2 
+                        @if(Cookie::get('likesuperhero'.$superhero->id)) active @endif" 
+                        href="/index/superhero/{{$superhero->id}}/like">
+                            <i class="far fa-thumbs-up fa-2x"></i>
+                        </a>
+                    </div>
                 </div>
             @endforeach
-    </div>
+        </div>
     </div>
 </body>
 

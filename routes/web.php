@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'SuperHeroController@index');
-Route::get('/superhero/ranking', 'SuperHeroRankingController@index');
+Route::get('/superheroes', 'SuperHeroController@show');
+Route::get('/superheroes/ranking', 'SuperHeroRankingController@index');
 Route::get('/superhero/{id}', 'SuperHeroDetailController@index');
 Route::get('/index/superhero/{id}/{like}', 'SuperHeroController@update');
 Route::get('/superhero/{id}/{like}', 'SuperHeroDetailController@update');

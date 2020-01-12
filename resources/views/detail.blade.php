@@ -13,21 +13,37 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">SUPERHEROES</a>
+        <li class="nav-item" style="list-style-type: none;">
+            <a class="btn btn-dark" href="/">Return</a>
+          </li>
+    </nav>
     <div class="container-fluid">
-        <div class="row">
-            <img src="{{$superhero->picture}}" alt="Picture" class="card-img-top img-responsive col-sm-4" style="width: 400px">
-            <div class="card col-sm-8">
-                <div class="card-body">
-                    <h2 class="card-title">{{$superhero->name}}</h2>
-                    <p class="card-text">{{$superhero->info}}</p>
-                    <p class="card-text"><small class="text-muted">{{$superhero->publisher}}</small></p>
-                </div>
-                <div class="mb-2 justify-content-end d-flex">
-                    <a type="button" class="btn-outline-dark ml-2 @if(Cookie::get('dislikesuperhero'.$superhero->id)) active @endif" href="/superhero/{{$superhero->id}}/dislike"><i class="far fa-thumbs-down fa-2x"></i></a>
-                    <a type="button" class="btn-outline-dark ml-2 mr-2 @if(Cookie::get('likesuperhero'.$superhero->id)) active @endif" href="/superhero/{{$superhero->id}}/like"><i class="far fa-thumbs-up fa-2x"></i></a>
+        @if ($superhero)
+            <div class="row mx-auto">
+                <img src="{{$superhero->picture}}" alt="Picture" class="card-img-top img-responsive col-sm-4 mt-2 mb-2" style="width: 300px">
+                <div class="card col-sm-8">
+                    <div class="card-body">
+                        <h2 class="card-title">{{$superhero->name}}</h2>
+                        <p class="card-text">{{$superhero->info}}</p>
+                        <p class="card-text"><small class="text-muted">{{$superhero->publisher}}</small></p>
+                    </div>
+                    <div class="mb-2 justify-content-end d-flex">
+                        <a type="button" class="btn-outline-dark ml-2 
+                        @if(Cookie::get('dislikesuperhero'.$superhero->id)) active @endif" 
+                        href="/superhero/{{$superhero->id}}/dislike">
+                            <i class="far fa-thumbs-down fa-2x"></i>
+                        </a>
+                        <a type="button" class="btn-outline-dark ml-2 mr-2 
+                        @if(Cookie::get('likesuperhero'.$superhero->id)) active @endif" 
+                        href="/superhero/{{$superhero->id}}/like">
+                            <i class="far fa-thumbs-up fa-2x"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     </div>
 </body>
 

@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>SuperHeroes</title>
-    <!-- Estilos -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -13,18 +12,24 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">SUPERHEROES</a>
+        <li class="nav-item" style="list-style-type: none;">
+            <a class="btn btn-dark" href="/">Return</a>
+          </li>
+    </nav>
     <div class="container-fluid card-group">
-        <div class="row">
+        <div class="row justify-content-center mx-auto">
             @foreach($superheroes as $superhero)
-                <div class="card m-3" style="width: 20rem;">
-                    <img class="col-sm card-img-top img-responsive" src="{{$superhero->picture}}" alt="Picture"  style="width: 100px">
-                    <div class="card-body col-sm">
-                        <h3 class="card-title text-uppercase">{{$superhero->name}}</h3>
-                        <h4 class="card-text">{{$superhero->likes}}</h3>
+                <div class="card col-sm-2 m-3">
+                    <img class="col-sm card-img-top img-responsive mt-3 mx-auto" src="{{$superhero->picture}}" alt="Picture"  style="width: 170px; height:170px;">
+                    <div class="card-body col-sm text-center">
+                        <h2 class="card-title font-weight-bold">{{$superhero->name}}</h2>
+                        <h3 class="card-text">{{$superhero->likes}}</h3>
                     </div>
                 </div>
             @endforeach
-    </div>
+        </div>
     </div>
 </body>
 
