@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SuperHeroController@index');
+Route::get('/superhero/ranking', 'SuperHeroRankingController@index');
+Route::get('/superhero/{id}', 'SuperHeroDetailController@index');
+Route::get('/index/superhero/{id}/{like}', 'SuperHeroController@update');
+Route::get('/superhero/{id}/{like}', 'SuperHeroDetailController@update');
+
