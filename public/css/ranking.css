@@ -1,8 +1,27 @@
-.carousel {
-    max-width: 600px;
-    width: auto;
-}
-
 .carousel-caption {
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
+@media only screen and (max-width: 1920px) {
+    .carousel-item img{
+        height:800px;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .carousel-item img{
+        height:700px;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel-item img{
+        height:600px;
+        object-fit: cover;
+        object-position: 25% 25%;
+    }
+}
+
+

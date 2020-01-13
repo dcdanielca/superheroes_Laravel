@@ -71,8 +71,7 @@ class SuperHeroDetailController extends Controller
      */
     public function update(Request $request, SuperHero $superHero, $id, $like)
     {
-        $cookies = LikesHelper::updateLikes($id, $like);
-        return redirect('/superhero/'.$id)->withCookie($cookies["Like"])->withCookie($cookies["Dislike"]);
+        //
     }
 
     /**

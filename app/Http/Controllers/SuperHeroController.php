@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SuperHero;
 use Illuminate\Http\Request;
-use LikesHelper;
+use Response;
 
 class SuperHeroController extends Controller
 {
@@ -69,10 +69,27 @@ class SuperHeroController extends Controller
      * @param  \App\SuperHero  $superHero
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SuperHero $superHero, $id, $like)
+    public function update(Request $request, SuperHero $superHero)
     {     
-        $cookies = LikesHelper::updateLikes($id, $like);
-        return redirect('/')->withCookie($cookies["Like"])->withCookie($cookies["Dislike"]);
+        $id = $request->id;
+        $like = $request->like;
+        if(is_null($id) || is_null($like)){
+            return Response::json(array(
+                'error'=> "id or like nor found",
+                'id' => $id,
+                'like' => $like
+            ), 400);
+        }
+        $superHero = SuperHero::findOrFail($id);
+        if ($like == "yes") {
+            $superHero->increment('likes');
+        }else{
+            $superHero->decrement('likes');
+        }
+        $superHero->save();
+        return Response::json(array(
+            'success' => true
+        ), 201);
     }
 
     /**

@@ -38,7 +38,9 @@
         <div class="carousel-inner">
                 @foreach($superheroes as $superhero)
                     <div class="carousel-item @if ($superhero->id == 1) active @endif">
-                        <img class="d-block w-100 mx-auto" src="{{$superhero->picture}}" alt="Picture" >
+                        <div class="item d-block">
+                            <img class="w-100 d-block mx-auto" src="{{$superhero->picture}}" alt="Picture" >
+                        </div>
                         <div class="carousel-caption">
                             <h2 class="card-title font-weight-bold">{{$superhero->name}}</h2>
                             <div class="row justify-content-center">

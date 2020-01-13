@@ -7,9 +7,10 @@
     <title>SuperHeroes</title>
     <script src="https://kit.fontawesome.com/340a5fc764.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{{asset('js/likes.js')}}"></script>
 </head>
 
 <body>
@@ -31,14 +32,10 @@
                         <p class="card-text"><small class="text-muted">{{$superhero->publisher}}</small></p>
                     </div>
                     <div class="mb-2 justify-content-end d-flex">
-                        <a type="button" class="btn-outline-dark ml-2 
-                        @if(Cookie::get('dislikesuperhero'.$superhero->id)) active @endif" 
-                        href="/index/superhero/{{$superhero->id}}/dislike">
+                        <a id="{{$superhero->id}}" type="button" class="dislike btn-outline-dark ml-2">
                             <i class="far fa-thumbs-down fa-2x"></i>
                         </a>
-                        <a type="button" class="btn-outline-dark ml-2 mr-2 
-                        @if(Cookie::get('likesuperhero'.$superhero->id)) active @endif" 
-                        href="/index/superhero/{{$superhero->id}}/like">
+                        <a id="{{$superhero->id}}" type="button" class="like btn-outline-dark ml-2 mr-2">
                             <i class="far fa-thumbs-up fa-2x"></i>
                         </a>
                     </div>
