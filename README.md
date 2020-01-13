@@ -29,7 +29,7 @@ Ejecutar `php artisan serve`
 ## Home
 - url:`/` y por página:`/?page={{pagina}}`
 
-![Home](imagesReadme/Home.png)
+![Home](imagesReadme/home.png)
 
 Al final de esta vista, se encuentran las diferentes páginas para navegar entre las tarjetas de heroes
 ![Home Paginator](imagesReadme/HomePaginator.png)
