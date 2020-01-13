@@ -27,7 +27,8 @@ Ejecutar `php artisan serve`
 # Información adicional del desarrollo de la aplicación
 
 ## Home
-- url:'/' y por página:'/?page={{pagina}}' 
+- url:'/' y por página:'/?page={{pagina}}'
+
 ![Home](imagesReadme/Home.png)
 
 Al final de esta vista, se encuentran las diferentes páginas para navegar entre las tarjetas de heroes
@@ -35,11 +36,13 @@ Al final de esta vista, se encuentran las diferentes páginas para navegar entre
 
 ## Ranking de Heroes
 - url:'/superheroes/ranking' y desde el Home en el botón `See ranking` 
+
 ![Boton ver ranking](imagesReadme/botonSeeRanking.png)
 ![Ranking](imagesReadme/ranking.png)
 
 ## Detalle de SuperHeroe
 - url:'/superhero/{{idSuperheroe}}' y desde el Home el nombre del superheroe contiene un enlace a su detalle 
+
 ![Detalle Heroe](imagesReadme/detalleHeroe.png)
 
 ## Me gusta o no me gusta
