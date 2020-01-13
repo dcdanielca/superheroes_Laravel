@@ -48,6 +48,7 @@ Al final de esta vista, se encuentran las diferentes páginas para navegar entre
 ## Me gusta o no me gusta
 
 Se puede hacer a través de los iconos de me gusta o no me gusta en el Home donde está el visor de superheroes o a través de del detalle de un superheroe.
+
 ![Like Home](imagesReadme/likeHome.png)
 ![Detalle Heroe Like](imagesReadme/detalleHeroeLike.png)
 
